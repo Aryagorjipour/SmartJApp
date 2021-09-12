@@ -3,14 +3,18 @@ package MainPackage;
 import javax.swing.*;
 import PagesPackages.frameMaker;
 import java.awt.event.*;
+import java.io.IOException;
 import java.awt.*;
+import java.net.URI;
+import java.net.URISyntaxException;
+import JStyles.*;
 
 public class MainFrame implements ActionListener, MouseListener {
 
-    JButton btnApps;
-    JButton btnGames;
+    SButton btnApps;
+    SButton btnGames;
     JFrame frame = new JFrame();
-    JButton btnAbout;
+    SButton btnAbout;
 
     public MainFrame() {
 
@@ -56,28 +60,19 @@ public class MainFrame implements ActionListener, MouseListener {
 
         centerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
-        btnApps = new JButton("Apps");
-        btnGames = new JButton("Games");
-        btnAbout = new JButton("About");
+        btnApps = new SButton("Apps");
+        btnGames = new SButton("Games");
+        btnAbout = new SButton("About");
 
-        btnApps.setFocusable(false);
-        btnApps.setBackground(new Color(0xc133ff));
-        btnApps.setForeground(new Color(0xFFFFFF));
-        btnApps.setFont(new Font("MV Boli", Font.PLAIN, 15));
+        
         btnApps.addMouseListener(this);
         btnApps.addActionListener(this);
 
-        btnGames.setFocusable(false);
-        btnGames.setBackground(new Color(0xc133ff));
-        btnGames.setForeground(new Color(0xFFFFFF));
-        btnGames.setFont(new Font("MV Boli", Font.PLAIN, 15));
+       
         btnGames.addMouseListener(this);
         btnGames.addActionListener(this);
 
-        btnAbout.setFocusable(false);
-        btnAbout.setBackground(new Color(0xc133ff));
-        btnAbout.setForeground(new Color(0xFFFFFF));
-        btnAbout.setFont(new Font("MV Boli", Font.PLAIN, 15));
+        
         btnAbout.addMouseListener(this);
         btnAbout.addActionListener(this);
 
@@ -101,15 +96,16 @@ public class MainFrame implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnApps) {
             frame.dispose();
-            new frameMaker(500, 500,"App","Choose app");
-        } 
-        else if (e.getSource() == btnGames) {
+            new frameMaker(500, 500, "App", "Choose app");
+        } else if (e.getSource() == btnGames) {
             frame.dispose();
-            new frameMaker(500, 550,"Game","Which game do you want to play");
-        } 
-        else if (e.getSource() == btnAbout) {
-            frame.dispose();
-            new frameMaker(500, 500,"About","About This application");
+            new frameMaker(500, 550, "Game", "Which game do you want to play");
+        } else if (e.getSource() == btnAbout) {
+            try {
+                Desktop.getDesktop().browse(new URI("https://github.com/Aryagorjipour/SmartJApp"));
+            } catch (IOException | URISyntaxException e1) {
+                e1.printStackTrace();
+            }
         }
     }
 

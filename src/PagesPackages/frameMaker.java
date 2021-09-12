@@ -4,19 +4,21 @@ import MainPackage.*;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import JStyles.*;
 
 public class frameMaker extends Frame implements ActionListener {
 
     JFrame frame;
     JPanel containerPanel;
-    JButton btnBack;
+    SButton btnBack;
     // Apps buttons
-    JButton btnCalculator;
-    JButton btnPaint;
+    SButton btnCalculator;
+    // SButton btnPaint;
+    SButton btnPaint;
     // Games buttons
-    JButton btnxoG;
-    JButton btnHangManG;
-    JButton btnSnakeG;
+    SButton btnxoG;
+    SButton btnHangManG;
+    SButton btnSnakeG;
 
     public frameMaker(int width, int height, String frameType, String title) {
         frame = new JFrame();
@@ -43,16 +45,13 @@ public class frameMaker extends Frame implements ActionListener {
 
         copyRightPanel.add(copyrightLabel, BorderLayout.CENTER);
 
-
         if (frameType == "App") {
             App();
         } else if (frameType == "Game") {
             Game();
-        } else if (frameType == "About") {
-            About();
         }
 
-        btnBack = new JButton("Go Back");
+        btnBack = new SButton("Go Back");
         btnBack.setFocusable(false);
         btnBack.setPreferredSize(new Dimension(400, 100));
         btnBack.addActionListener(this);
@@ -60,34 +59,31 @@ public class frameMaker extends Frame implements ActionListener {
 
         frame.add(copyRightPanel, BorderLayout.SOUTH);
         frame.add(containerPanel, BorderLayout.CENTER);
-
         frame.setVisible(true);
-    }
-
-    private void About() {
-        JLabel 
     }
 
     private void App() {
 
-        btnCalculator = new JButton("Calculator App");
-        btnPaint = new JButton("Paint App");
-        
+        btnCalculator = new SButton("Calculator App");
+        btnPaint = new SButton("Paint App");
+
         btnCalculator.setFocusable(false);
         btnPaint.setFocusable(false);
-        
+
         btnCalculator.setPreferredSize(new Dimension(400, 100));
         btnPaint.setPreferredSize(new Dimension(400, 100));
-        
+
         containerPanel.add(btnCalculator);
         containerPanel.add(btnPaint);
+
+
     }
 
     private void Game() {
 
-        btnxoG = new JButton("Play Tic Tac Toe");
-        btnHangManG = new JButton("Play Hangman");
-        btnSnakeG = new JButton("Play Snack");
+        btnxoG = new SButton("Play Tic Tac Toe");
+        btnHangManG = new SButton("Play Hangman");
+        btnSnakeG = new SButton("Play Snack");
 
         btnxoG.setFocusable(false);
         btnHangManG.setFocusable(false);
@@ -108,6 +104,6 @@ public class frameMaker extends Frame implements ActionListener {
         if (e.getSource() == btnBack) {
             frame.dispose();
             new MainFrame();
-        }
+        } 
     }
 }
