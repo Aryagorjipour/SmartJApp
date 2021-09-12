@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import JStyles.SButton;
 import MainPackage.MainFrame;
 import PagesPackages.Apps.Caculator.Calculator;
+import PagesPackages.Games.Snake.GameFrame;
 import PagesPackages.Games.TicTacToe.TicTacToe;
 
 public class frameMaker extends Frame implements ActionListener {
@@ -106,6 +107,7 @@ public class frameMaker extends Frame implements ActionListener {
         btnSnakeG.setPreferredSize(new Dimension(400, 100));
 
         btnxoG.addActionListener(this);
+        btnSnakeG.addActionListener(this);
 
         containerPanel.add(btnxoG);
         containerPanel.add(btnHangManG);
@@ -127,6 +129,9 @@ public class frameMaker extends Frame implements ActionListener {
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }
+        }
+        else if (e.getSource() == btnSnakeG){
+            new GameFrame();
         }
     }
 }
