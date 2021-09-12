@@ -1,10 +1,20 @@
 package PagesPackages;
 
-import MainPackage.*;
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
-import JStyles.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import JStyles.SButton;
+import MainPackage.MainFrame;
+import PagesPackages.Apps.Caculator.Calculator;
 
 public class frameMaker extends Frame implements ActionListener {
 
@@ -73,10 +83,11 @@ public class frameMaker extends Frame implements ActionListener {
         btnCalculator.setPreferredSize(new Dimension(400, 100));
         btnPaint.setPreferredSize(new Dimension(400, 100));
 
+        btnCalculator.addActionListener(this);
+        btnPaint.addActionListener(this);
+
         containerPanel.add(btnCalculator);
         containerPanel.add(btnPaint);
-
-
     }
 
     private void Game() {
@@ -104,6 +115,8 @@ public class frameMaker extends Frame implements ActionListener {
         if (e.getSource() == btnBack) {
             frame.dispose();
             new MainFrame();
-        } 
+        } else if (e.getSource() == btnCalculator) {
+            new Calculator();
+        }
     }
 }
