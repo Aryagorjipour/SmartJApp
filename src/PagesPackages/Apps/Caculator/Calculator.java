@@ -27,6 +27,7 @@ public class Calculator implements ActionListener {
         frame.setSize(420, 550);
         frame.setResizable(false);
         frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
 
         textField = new JTextField();
         textField.setBounds(50, 25, 300, 50);

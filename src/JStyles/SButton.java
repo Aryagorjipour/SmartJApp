@@ -13,4 +13,11 @@ public class SButton extends JButton  {
         this.setForeground(new Color(0xFFFFFF));
         this.setFont(new Font("MV Boli", Font.PLAIN, 15));
     }
+    public SButton() {
+        super();
+        this.setFocusable(false);
+        this.setBackground(new Color(0xc133ff));
+        this.setForeground(new Color(0xFFFFFF));
+        this.setFont(new Font("MV Boli", Font.PLAIN, 15));
+    }
 }
