@@ -30,7 +30,8 @@ This program contains two main parts:
 - `Games`: the part contains games and it is the entertainment section of SmartJ Application
 
 ## Release Note
-This app is in development right now and will have lots of changes so we will announce when the alfa/beta version comes out.
+The First Release of SmartJ came out on September 13, 2021, as Alpha 1.0.0
+This app is in development right now and will have lots of changes.
 
 ## Developers
 The main developer of this project is [Arya Gorjipour](http://arysmart.epizy.com) 
