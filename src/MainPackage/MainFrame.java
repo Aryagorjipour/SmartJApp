@@ -43,7 +43,7 @@ public class MainFrame implements ActionListener, MouseListener {
         topPanel.setLayout(new BorderLayout(10, 10));
 
         JLabel welcomeLabel = new JLabel("Welcome to smartJ");
-        JLabel copyrightLabel = new JLabel("Â© Copyright SmartAsGroup 2021. All Rights Reserved");
+        JLabel copyrightLabel = new JLabel("© Copyright SmartAsGroup 2021. All Rights Reserved Developed by Arya Gorjipour");
 
         welcomeLabel.setForeground(new Color(0x36393d));
         welcomeLabel.setFont(new Font("MV Boli", Font.BOLD, 30));

@@ -22,13 +22,19 @@ public class GamePanel extends JPanel implements ActionListener {
     boolean isRunning = false;
     Timer timer;
     Random random;
+    Color aColor;
+    Color sColor;
 
     GamePanel() {
         random = new Random();
+       
+        sColor = new Color(0xff2589);
+        
         this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
-        this.setBackground(Color.LIGHT_GRAY);
+        this.setBackground(Color.BLACK);
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
+        
         startGame();
     }
 
@@ -53,20 +59,21 @@ public class GamePanel extends JPanel implements ActionListener {
                 g.drawLine(0, i * UNIT_SIZE, SCREEN_WIDTH, i * UNIT_SIZE);
             }*/
 
-            g.setColor(Color.RED);
+            aColor = new Color(random.nextInt(254),random.nextInt(254),random.nextInt(254));
+        	g.setColor(aColor);
             g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
 
             for (int i = 0; i < bodyParts; i++) {
                 if (i == 0) {
-                    g.setColor(Color.GREEN);
+                    g.setColor(sColor);
                     g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
                 } else {
-                    g.setColor(new Color(0xc133ff));
+                    g.setColor(sColor);
                     //g.setColor(new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255)));//random color for snack
                     g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
                 }
             }
-            g.setColor(Color.RED);
+            g.setColor(new Color(0xc133ff));
             g.setFont(new Font("MV Boli",Font.PLAIN,40));
             FontMetrics metrics = getFontMetrics(g.getFont());
             g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metrics.stringWidth("Score: " + applesEaten)) / 2, g.getFont().getSize());
@@ -80,6 +87,7 @@ public class GamePanel extends JPanel implements ActionListener {
     public void newApple() {
         appleX = random.nextInt((int) (SCREEN_WIDTH / UNIT_SIZE)) * UNIT_SIZE;
         appleY = random.nextInt((int) (SCREEN_HEIGHT / UNIT_SIZE)) * UNIT_SIZE;
+        sColor = new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255));
     }
 
     public void move() {
@@ -108,6 +116,7 @@ public class GamePanel extends JPanel implements ActionListener {
             bodyParts++;
             applesEaten++;
             newApple();
+            sColor = aColor;
         }
     }
 
@@ -142,14 +151,25 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public void gameOver(Graphics g) {
         //Game Over Text
-        g.setColor(Color.RED);
+    	g.setColor(new Color(0xc133ff));
         g.setFont(new Font("MV Boli",Font.BOLD,75));
         FontMetrics metrics = getFontMetrics(g.getFont());
         g.drawString("Game Over", (SCREEN_WIDTH - metrics.stringWidth("Game Over")) / 2, SCREEN_HEIGHT/2);
-        g.setColor(Color.RED);
+        
+        g.setColor(new Color(0xc133ff));
         g.setFont(new Font("MV Boli",Font.PLAIN,40));
         FontMetrics metricsScore = getFontMetrics(g.getFont());
         g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metricsScore.stringWidth("Score: " + applesEaten)) / 2, g.getFont().getSize());
+   
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("MV Boli",Font.PLAIN,12));
+        FontMetrics metricsCopy = getFontMetrics(g.getFont());
+        g.drawString("© Copyright SmartAsGroup 2021. All Rights Reserved", (SCREEN_WIDTH - metricsCopy.stringWidth("© Copyright SmartAsGroup 2021. All Rights Reserved")) / 2, SCREEN_HEIGHT -  (g.getFont().getSize() * 2));
+        
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("MV Boli",Font.PLAIN,12));
+        FontMetrics metricsDeveloper = getFontMetrics(g.getFont());
+        g.drawString("Developed by Arya Gorjipour", (SCREEN_WIDTH - metricsDeveloper.stringWidth("Developed by Arya Gorjipour")) / 2, SCREEN_HEIGHT -  2);
     }
 
     @Override

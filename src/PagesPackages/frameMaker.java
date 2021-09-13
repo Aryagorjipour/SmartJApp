@@ -48,7 +48,7 @@ public class frameMaker extends Frame implements ActionListener {
         containerPanel.setPreferredSize(new Dimension(400, 500));
         copyRightPanel.setPreferredSize(new Dimension(500, 40));
 
-        JLabel copyrightLabel = new JLabel("Â© Copyright SmartAsGroup 2021. All Rights Reserved");
+        JLabel copyrightLabel = new JLabel("© Copyright SmartAsGroup 2021. All Rights Reserved Developed by Arya Gorjipour");
 
         copyrightLabel.setForeground(new Color(0x36393d));
         copyrightLabel.setFont(new Font("MV Boli", Font.BOLD, 10));

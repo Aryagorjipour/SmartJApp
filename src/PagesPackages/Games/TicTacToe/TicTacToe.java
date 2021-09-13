@@ -15,7 +15,7 @@ public class TicTacToe implements ActionListener {
     JLabel textField = new JLabel();
     SButton[] buttons = new SButton[9];
     boolean playerOne_turn;
-    private int _turnCount = 0;
+    //private int _turnCount = 0;
 
     public TicTacToe() throws InterruptedException {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
