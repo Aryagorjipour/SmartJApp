@@ -5,8 +5,7 @@
 Welcome to the SmartJ world. Here is some informarion about SmartJ and the guild for using this application.
 
 ## SmartJ
-SmartJ is an IP that contains all of Smart Groups and its developers which is written in Java language.
-for more information you can check our group website or developer website.
+SmartJ is an IP written and developed by SmartUs Group developers in Java. For more information, you can check our group website or developer website.
 
 ## Folder Structure
 
